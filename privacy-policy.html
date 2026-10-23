@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy for Selectra</title>
+<style>
+/* Shared styling of the legal pages (privacy.html, licenses.html), shown in the popup's viewer and in a tab.
+   Palette = popup.css tokens, so the pages match the popup's dark/light theme. Written to read well at ~340px. */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #07090e;
+  --text: #f8fafc;
+  --text-2: #a3b1c6;
+  --line: rgba(255, 255, 255, 0.10);
+  --chip: rgba(255, 255, 255, 0.07);
+  --row: rgba(255, 255, 255, 0.03);
+  --accent: #818cf8;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f8fc;
+  --text: #0f172a;
+  --text-2: #475569;
+  --line: rgba(0, 0, 0, 0.12);
+  --chip: rgba(0, 0, 0, 0.06);
+  --row: rgba(0, 0, 0, 0.028);
+  --accent: #4f46e5;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.doc {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 18px 18px 40px;
+}
+
+h1, h2, h3 { line-height: 1.25; letter-spacing: -0.015em; text-wrap: balance; }
+h1 { margin: 0 0 14px; font-size: 20px; font-weight: 800; }
+h2 { margin: 26px 0 8px; font-size: 14.5px; font-weight: 700; scroll-margin-top: 12px; }
+h3 { margin: 18px 0 6px; font-size: 13px; font-weight: 700; color: var(--text); }
+
+p, ul { margin: 0 0 10px; }
+p { color: var(--text-2); text-wrap: pretty; }
+strong { color: var(--text); font-weight: 700; }
+
+ul { padding-left: 18px; color: var(--text-2); }
+li { margin: 0 0 6px; padding-left: 2px; }
+li::marker { color: var(--accent); }
+
+hr { margin: 18px 0; border: 0; border-top: 1px solid var(--line); }
+
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--chip);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+table {
+  width: 100%;
+  margin: 8px 0 14px;
+  border-collapse: collapse;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+th, td { padding: 8px 9px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { color: var(--text); font-weight: 700; background: var(--row); }
+td { color: var(--text-2); }
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { width: 38%; }
+
+pre {
+  margin: 10px 0 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--row);
+  color: var(--text-2);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  body { font-size: 15px; }
+  .doc { padding: 40px 24px 80px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 15px; }
+  code { font-size: 12.5px; }
+  table { font-size: 14px; }
+  pre { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+</style>
+<script>
+(function () {
+  'use strict';
+
+  // Same theme choice as the popup (it stores it in this origin's localStorage); the markup defaults to dark.
+  try {
+    let saved = localStorage.getItem('superUnlockerTheme');
+    try {
+      const parsed = JSON.parse(saved);
+      if (typeof parsed === 'string') saved = parsed;
+    } catch {}
+    const theme = saved === 'dark' || saved === 'light'
+      ? saved
+      : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch {}
+
+  // Inside the popup's viewer this page is a frame, and the popup cannot see key presses made in it.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && window.parent !== window) {
+      try { window.parent.postMessage({ type: 'selectra-legal-close' }, location.origin); } catch {}
+    }
+  });
+})();
+</script>
+</head>
+<body>
+<main class="doc">
+<h1>Privacy Policy for Selectra</h1>
+<p><strong>Effective Date:</strong> September 6, 2026<br>
+<strong>Last Updated:</strong> October 22, 2026</p>
+<p>Selectra (&quot;the Extension&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how our browser extension operates, what data is accessed, and confirms that <strong>we do not collect, store, transmit, or sell any of your personal data.</strong></p>
+<hr>
+<h2 id="s1">1. Core Commitment: Zero Data Collection</h2>
+<p>Selectra is designed with privacy as a foundational principle:</p>
+<ul>
+<li><strong>No Personal Information Collected:</strong> We do not collect names, email addresses, IP addresses, browsing history, or device identifiers.</li>
+<li><strong>No Keystroke Logging:</strong> The extension never logs or records your keystrokes or form inputs and never reads what you type. Key presses are only observed, while a feature is on, so that shortcuts keep working (see 2.4).</li>
+<li><strong>No Clipboard Snooping:</strong> When you copy text, the extension prevents malicious websites from tampering with your clipboard or injecting unwanted tracking links. It does not read, transmit, or save your clipboard contents to any external server.</li>
+<li><strong>No Remote Tracking or Analytics:</strong> The extension contains <strong>zero</strong> third-party trackers, telemetry libraries, Google Analytics, or remote tracking beacons.</li>
+<li><strong>No Remote Code Execution:</strong> All extension code is bundled locally within the extension package in full compliance with Chrome Web Store Manifest V3 guidelines.</li>
+</ul>
+<hr>
+<h2 id="s2">2. Information Handled Locally</h2>
+<p>All data processed by Selectra stays entirely within your local browser:</p>
+<h3>2.1 User Preferences &amp; Settings</h3>
+<ul>
+<li><strong>What is stored:</strong> Selected UI theme (dark/light/system), preferred interface language, global enable/disable states, and per-domain feature toggles (e.g., whether right-click re-enablement is active on a specific website).</li>
+<li><strong>Where it is stored:</strong> Stored locally on your machine using Chrome's native <code>chrome.storage.local</code> API.</li>
+<li><strong>Data Sharing:</strong> This data never leaves your browser and is never uploaded to any remote server or cloud service.</li>
+</ul>
+<h3>2.2 Images You Save (Alt+Click and &quot;Download image&quot;)</h3>
+<p>When you Alt+Click a picture or use the &quot;Download image&quot; context-menu entry, Selectra asks Chrome to download that picture. If the picture's own server refuses the request because it carries no page address, Selectra requests the picture itself from that server, sending the address of the page you are on as the <code>Referer</code> header (the same thing your browser does while showing the page). That request made by Selectra <strong>carries no cookies or other credentials</strong> (Chrome's own download request behaves like any ordinary download and is not changed by Selectra), the request is never made to a private-network address on behalf of a public page, and the picture is saved by the extension; it is not handed to the web page. Nothing is sent to the developer or to any third party other than the server that hosts the picture you chose to save.</p>
+<h3>2.3 Issue Reports</h3>
+<p>The popup's &quot;report&quot; button builds a text from the address of the page you are on (its host and path only; the query string and fragment are left out), the extension version, the list of active features and detected restrictions, your browser's user-agent string, a timestamp and the notes you type. It then copies that text to your clipboard and opens Selectra's own page in the Chrome Web Store (its Support tab) so that you can paste it there yourself. <strong>Selectra itself sends nothing anywhere</strong>: whether the text is ever submitted is entirely your decision, and the full text can be previewed in the popup before you use it. A separate &quot;copy&quot; button copies the same text without opening anything.</p>
+<h3>2.4 Page Content and Input Events (Processed Locally)</h3>
+<p>When you turn a feature on, Selectra's scripts run in the pages you visit (in every frame) and read what they need to lift that page's restriction: the selected text, the page's links and image addresses, element styles, and which scripts have blocked right-click, selection, copying, scrolling or printing. They also watch clicks, mouse movement over images, key presses (for shortcuts such as Ctrl+C or F12) and scrolling, so that the page cannot block them. All of this happens inside your browser, only while the feature is on. <strong>None of it is stored, logged or transmitted</strong> (your settings, described in 2.1, are the only thing Selectra keeps), apart from the actions you start yourself that are described in 2.2 and 2.3. Selectra never records what you type or what you copy.</p>
+<hr>
+<h2 id="s3">3. Chrome Web Store Permissions &amp; Why They Are Needed</h2>
+<p>Selectra requests only the minimum permissions necessary to deliver its core utility functions:</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Purpose &amp; Technical Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;all_urls&gt;</code></td>
+<td>Required to inject content scripts into web pages where copy, context menu, or text selection restrictions are imposed by website scripts.</td>
+</tr>
+<tr>
+<td><code>declarativeNetRequestWithHostAccess</code></td>
+<td>Used only while saving an image whose host rejects requests that carry no <code>Referer</code>, and only on your request. Two temporary rules exist for the duration of that single request: one sets the <code>Referer</code> header for that one URL, the other blocks the request from being redirected into your own network (localhost, LAN addresses). Both are removed when the request finishes. Selectra installs no permanent rules and does not inspect, log or transmit network traffic.</td>
+</tr>
+<tr>
+<td><code>downloads</code></td>
+<td>Required to allow users to save images locally via drag-and-drop or right-click context menu when web pages disable native image saving.</td>
+</tr>
+<tr>
+<td><code>storage</code></td>
+<td>Required to save user preferences (e.g., active toggles, theme, language, per-site whitelist/blacklist) locally via <code>chrome.storage.local</code>.</td>
+</tr>
+<tr>
+<td><code>contextMenus</code></td>
+<td>Adds quick-access utility options (e.g., &quot;Force Copy Selection&quot;, &quot;Download Image&quot;, &quot;Toggle Protection&quot;) directly to the browser's right-click context menu.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="s4">4. Third-Party Services &amp; Links</h2>
+<p>Selectra does not share data with any third-party services. The only external page the extension opens on its own is its Chrome Web Store listing (Support tab), and only when you press the report button. When you follow that link, you are subject to Google's privacy policy for the Chrome Web Store.</p>
+<h3>4.1 Fonts</h3>
+<p>The popup uses the &quot;Plus Jakarta Sans&quot; and &quot;JetBrains Mono&quot; typefaces. Both are included in the extension package (SIL Open Font License 1.1, see <code>fonts/OFL.txt</code>); the popup makes no request to Google Fonts or to any other server.</p>
+<hr>
+<h2 id="s5">5. Children's Online Privacy Protection</h2>
+<p>Selectra does not collect personal information from any user, including children under the age of 13.</p>
+<hr>
+<h2 id="s6">6. Policy Changes</h2>
+<p>If we ever update this Privacy Policy, the revised version will be published with an updated &quot;Effective Date&quot;. Because we do not collect contact details, please review this policy periodically or check the release notes on the extension's Chrome Web Store listing.</p>
+<hr>
+<h2 id="s7">7. Contact Us</h2>
+<p>If you have questions, feedback, or concerns regarding this Privacy Policy or the security of Selectra, please use the <strong>Support</strong> tab of the Selectra listing in the Chrome Web Store. That is the only contact channel; the extension itself contains no e-mail address and no contact form.</p>
+</main>
+</body>
+</html>
